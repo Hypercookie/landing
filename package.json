@@ -10,6 +10,6 @@
     "@tailwindcss/cli": "^4.0.14",
     "@tailwindcss/typography": "^0.5.8",
     "prettier": "^3.0.0",
-    "prettier-plugin-tailwindcss": "^0.6.14"
+    "prettier-plugin-tailwindcss": "^0.7.2"
   }
 }
