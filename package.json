@@ -2,7 +2,7 @@
   "dependencies": {
     "@rozsazoltan/tailwindcss-patterns": "^1.0.1",
     "autoprefixer": "^10.4.13",
-    "minify": "^14.0.0",
+    "minify": "^15.0.0",
     "postcss": "^8.4.20",
     "tailwindcss": "^4.0.0"
   },
