@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/Hypercookie/landing/compare/v1.3.1...v1.3.2) (2026-03-31)
+
+
+### Bug Fixes
+
+* improve Open Graph and Twitter preview meta tags ([35cbd04](https://github.com/Hypercookie/landing/commit/35cbd0450abab74a37e7ebb0da9ea333f9014476))
+
 ## [1.3.1](https://github.com/Hypercookie/landing/compare/v1.3.0...v1.3.1) (2026-03-31)
 
 
