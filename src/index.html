@@ -23,7 +23,7 @@
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://mlrjs.de"/>
 </head>
-<body class="bg-hero-topography overflow-x-hidden cursor-crosshair select-none dark:bg-hero-topography-blue-dark-100 dark:bg-gray-900 dark:text-white">
+<body class="pattern-topography-[#9c92ac]/40 overflow-x-hidden cursor-crosshair select-none dark:pattern-topography-[#323232] dark:bg-gray-900 dark:text-white">
 <script type="module" src="script.js" defer></script>
 <div
         class="max-w-screen relative h-screen max-h-screen w-screen overflow-hidden lg:flex lg:flex-row"
@@ -34,11 +34,8 @@
         <h1 class="font-space text-9xl text-white dark:text-white  lg:text-black">
             Hey,
         </h1>
-        <p class="font-space text-3xl text-white text-center dark:text-white  lg:text-black">
-            <br>
-            I am Jannes from Konstanz Germany.<br>
-            Most of my time I work as a full stack developer.<br>
-            Sometimes I also have to study for my Masters in Computer Science.
+        <p class="font-space text-3xl text-white text-center text-balance dark:text-white lg:text-black">
+            I'm Jannes, a Java backend developer based in Germany. M.Sc. Computer Science with a focus on graph databases, currently building things at VisualVest in Frankfurt.
         </p>
         <div class="font-space text-base text-white dark:text-white lg:text-black flex-row gap-20 mt-3 hidden lg:flex">
             <div class="cursor-cell" onclick="window.location.href = 'https://github.com/Hypercookie'">
@@ -99,39 +96,138 @@
         </div>
     </div>
 </div>
-<div class="min-h-screen h-screen overflow-hidden" id="Experience">
-    <h1 class="font-space text-9xl dark:text-white  text-black ml-6 mt-6">
+<div class="min-h-screen" id="Experience">
+    <h1 class="font-space text-9xl dark:text-white text-black ml-6 mt-6">
         Experience
     </h1>
-    <div class="flex flex-col h-screen items-center justify-center">
-        <div class="flex flex-col w-9/12 mb-20 ml-20">
-            <div class="text-6xl text-blue_scale-600">Java Development</div>
-            <div class="text-base">2023 - today</div>
-            <div class="text-4xl">
-                Java Development for <a href="https://www.knime.com/"
-                                        class="transition ease-in-out hover:text-knime-yellow">ΔKNIME</a> Konstanz.
+    <div class="mx-auto py-16 pl-8 lg:pl-16 pr-8 max-w-4xl">
+        <div class="flex flex-col timeline">
+            <div class="flex flex-row">
+                <div class="hidden lg:block w-36 shrink-0 text-right pr-6 pt-1.5">
+                    <span class="font-mono text-xs text-gray-400">2026 – <span class="present-scramble">present</span></span>
+                </div>
+                <div class="flex flex-col items-center shrink-0 w-8">
+                    <div class="work-icon w-7 h-7 rounded-full bg-blue_scale-600 ring-2 ring-white dark:ring-gray-900 z-10 shrink-0 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-8 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm2-9h-4V5h4v2z"/></svg>
+                    </div>
+                    <div class="w-px flex-1 bg-blue_scale-200 dark:bg-blue_scale-800 mt-1"></div>
+                </div>
+                <div class="flex-1 pl-4 pb-12">
+                    <div class="lg:hidden font-mono text-xs text-gray-400 mb-1">2026 – <span class="present-scramble">present</span></div>
+                    <a href="https://www.visualvest.de/" target="_blank" class="font-space text-3xl font-bold hover:text-visualvest dark:text-white transition-colors">VisualVest</a>
+                    <div class="font-mono text-sm text-gray-500 dark:text-gray-400 mt-1">Java Backend Development · Frankfurt</div>
+                </div>
             </div>
-        </div>
-        <div class="flex flex-col w-9/12 mb-20 ml-20">
-            <div class="text-6xl text-blue_scale-600">Full Stack Development</div>
-            <div class="text-base">2022 - 2023</div>
-            <div class="text-4xl">
-                Full Stack Development for a University of Konstanz research project.
+
+            <div class="flex flex-row">
+                <div class="hidden lg:block w-36 shrink-0 text-right pr-6 pt-1.5">
+                    <span class="font-mono text-xs text-gray-400">2023 – 2026</span>
+                </div>
+                <div class="flex flex-col items-center shrink-0 w-8">
+                    <div class="work-icon w-7 h-7 rounded-full bg-blue_scale-600 ring-2 ring-white dark:ring-gray-900 z-10 shrink-0 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-8 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm2-9h-4V5h4v2z"/></svg>
+                    </div>
+                    <div class="w-px flex-1 bg-blue_scale-200 dark:bg-blue_scale-800 mt-1"></div>
+                </div>
+                <div class="flex-1 pl-4 pb-12">
+                    <div class="lg:hidden font-mono text-xs text-gray-400 mb-1">2023 – 2026</div>
+                    <a href="https://www.knime.com/" target="_blank" class="font-space text-3xl font-bold hover:text-knime-yellow dark:text-white transition-colors">KNIME</a>
+                    <div class="font-mono text-sm text-gray-500 dark:text-gray-400 mt-1">Java Development · Konstanz</div>
+                    <div class="flex flex-row flex-wrap gap-2 mt-4">
+                        <a href="https://quarkus.io" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Quarkus</a>
+                        <a href="https://jakarta.ee" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Jakarta EE</a>
+                        <a href="https://kubernetes.io" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Kubernetes</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!--        <div class="flex flex-col w-9/12 mb-20 ml-20">-->
-        <!--            <div class="text-6xl text-blue_scale-600">Mobile Application Development</div>-->
-        <!--            <div class="text-base">2022 - 2023</div>-->
-        <!--            <div class="text-4xl">-->
-        <!--                Developing Mobile Applications in React Native for Join-Up-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <div class="flex flex-col w-9/12 mb-20 ml-20">
-            <div class="text-6xl text-blue_scale-600">Full Stack Development</div>
-            <div class="text-base">2022</div>
-            <div class="text-4xl">
-                Consulting and developing for a Logistics Provider in Germany.
+
+            <div class="flex flex-row">
+                <div class="hidden lg:block w-36 shrink-0 text-right pr-6 pt-1.5">
+                    <span class="font-mono text-xs text-gray-400">2023 – 2026</span>
+                </div>
+                <div class="flex flex-col items-center shrink-0 w-8">
+                    <div class="edu-icon w-7 h-7 rounded-full bg-uni-konstanz ring-2 ring-white dark:ring-gray-900 z-10 shrink-0 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+                    </div>
+                    <div class="w-px flex-1 bg-blue_scale-200 dark:bg-blue_scale-800 mt-1"></div>
+                </div>
+                <div class="flex-1 pl-4 pb-12">
+                    <div class="lg:hidden font-mono text-xs text-gray-400 mb-1">2023 – 2026</div>
+                    <a href="https://www.uni-konstanz.de/" target="_blank" class="font-space text-3xl font-bold hover:text-uni-konstanz dark:text-white transition-colors">University of Konstanz</a>
+                    <div class="font-mono text-sm text-gray-500 dark:text-gray-400 mt-1">M.Sc. Computer Science · Graph Database Theory & Database System Architecture</div>
+                    <div class="flex flex-row flex-wrap gap-2 mt-4">
+                        <a href="https://neo4j.com" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Graph Databases</a>
+                        <a href="https://db-engines.com" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Database Systems</a>
+                        <a href="https://en.wikipedia.org/wiki/Graph_theory" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Graph Theory</a>
+                    </div>
+                </div>
             </div>
+
+            <div class="flex flex-row">
+                <div class="hidden lg:block w-36 shrink-0 text-right pr-6 pt-1.5">
+                    <span class="font-mono text-xs text-gray-400">2022 – 2023</span>
+                </div>
+                <div class="flex flex-col items-center shrink-0 w-8">
+                    <div class="work-icon w-7 h-7 rounded-full bg-blue_scale-600 ring-2 ring-white dark:ring-gray-900 z-10 shrink-0 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-8 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm2-9h-4V5h4v2z"/></svg>
+                    </div>
+                    <div class="w-px flex-1 bg-blue_scale-200 dark:bg-blue_scale-800 mt-1"></div>
+                </div>
+                <div class="flex-1 pl-4 pb-12">
+                    <div class="lg:hidden font-mono text-xs text-gray-400 mb-1">2022 – 2023</div>
+                    <a href="https://www.uni-konstanz.de/" target="_blank" class="font-space text-3xl font-bold hover:text-uni-konstanz dark:text-white transition-colors">University of Konstanz</a>
+                    <div class="font-mono text-sm text-gray-500 dark:text-gray-400 mt-1">Full Stack Development · Research Project</div>
+                    <div class="flex flex-row flex-wrap gap-2 mt-4">
+                        <a href="https://angular.dev" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Angular</a>
+                        <a href="https://www.python.org" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Python</a>
+                        <a href="https://protobuf.dev" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Protobuf</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-row">
+                <div class="hidden lg:block w-36 shrink-0 text-right pr-6 pt-1.5">
+                    <span class="font-mono text-xs text-gray-400">2022</span>
+                </div>
+                <div class="flex flex-col items-center shrink-0 w-8">
+                    <div class="work-icon w-7 h-7 rounded-full bg-blue_scale-600 ring-2 ring-white dark:ring-gray-900 z-10 shrink-0 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-8 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm2-9h-4V5h4v2z"/></svg>
+                    </div>
+                    <div class="w-px flex-1 bg-blue_scale-200 dark:bg-blue_scale-800 mt-1"></div>
+                </div>
+                <div class="flex-1 pl-4 pb-12">
+                    <div class="lg:hidden font-mono text-xs text-gray-400 mb-1">2022</div>
+                    <div class="font-space text-3xl font-bold dark:text-white">Logistics Provider</div>
+                    <div class="font-mono text-sm text-gray-500 dark:text-gray-400 mt-1">Full Stack Development · Germany</div>
+                    <div class="flex flex-row flex-wrap gap-2 mt-4">
+                        <a href="https://angular.dev" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Angular</a>
+                        <a href="https://www.python.org" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Python</a>
+                        <a href="https://protobuf.dev" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Protobuf</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-row">
+                <div class="hidden lg:block w-36 shrink-0 text-right pr-6 pt-1.5">
+                    <span class="font-mono text-xs text-gray-400">2020 – 2023</span>
+                </div>
+                <div class="flex flex-col items-center shrink-0 w-8">
+                    <div class="edu-icon w-7 h-7 rounded-full bg-uni-konstanz ring-2 ring-white dark:ring-gray-900 z-10 shrink-0 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+                    </div>
+                </div>
+                <div class="flex-1 pl-4">
+                    <div class="lg:hidden font-mono text-xs text-gray-400 mb-1">2020 – 2023</div>
+                    <a href="https://www.uni-konstanz.de/" target="_blank" class="font-space text-3xl font-bold hover:text-uni-konstanz dark:text-white transition-colors">University of Konstanz</a>
+                    <div class="font-mono text-sm text-gray-500 dark:text-gray-400 mt-1">B.Sc. Computer Science · Graph Database Theory & Database System Architecture</div>
+                    <div class="flex flex-row flex-wrap gap-2 mt-4">
+                        <a href="https://neo4j.com" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Graph Databases</a>
+                        <a href="https://db-engines.com" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Database Systems</a>
+                        <a href="https://en.wikipedia.org/wiki/Graph_theory" target="_blank" class="font-mono text-xs px-3 py-1 rounded-full border border-blue_scale-600 text-blue_scale-600 hover:bg-blue_scale-600 hover:text-white transition-all duration-200 cursor-cell">Graph Theory</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
