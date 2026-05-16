@@ -3,7 +3,7 @@
     "@rozsazoltan/tailwindcss-patterns": "^1.0.1",
     "autoprefixer": "^10.4.13",
     "minify": "^15.0.0",
-    "postcss": "^8.4.20",
+    "postcss": "^8.5.14",
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
