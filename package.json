@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@rozsazoltan/tailwindcss-patterns": "^1.0.1",
-    "autoprefixer": "^10.5.0",
+    "autoprefixer": "^10.5.2",
     "minify": "^15.3.1",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.3.1"
@@ -9,7 +9,7 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.1",
     "@tailwindcss/typography": "^0.5.20",
-    "prettier": "^3.8.4",
+    "prettier": "^3.9.1",
     "prettier-plugin-tailwindcss": "^0.8.0"
   }
 }
