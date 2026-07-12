@@ -3,13 +3,13 @@
     "@rozsazoltan/tailwindcss-patterns": "^1.0.1",
     "autoprefixer": "^10.5.2",
     "minify": "^15.3.1",
-    "postcss": "^8.5.16",
+    "postcss": "^8.5.17",
     "tailwindcss": "^4.3.2"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.2",
     "@tailwindcss/typography": "^0.5.20",
-    "prettier": "^3.9.4",
+    "prettier": "^3.9.5",
     "prettier-plugin-tailwindcss": "^0.8.0"
   }
 }
