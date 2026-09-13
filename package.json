@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "@rozsazoltan/tailwindcss-patterns": "^1.0.1",
-    "autoprefixer": "^10.5.4",
+    "autoprefixer": "^10.5.5",
     "minify": "^15.3.1",
-    "postcss": "^8.5.27",
+    "postcss": "^8.5.28",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
