@@ -1,5 +1,5 @@
-import {spline} from "https://cdn.skypack.dev/@georgedoescode/spline@1.0.1";
-import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@2.4.0";
+import {spline} from "./vendor/spline.js";
+import SimplexNoise from "./vendor/simplex-noise.js";
 
 const path = document.querySelector("path");
 const root = document.documentElement;
