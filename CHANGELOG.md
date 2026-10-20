@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Hypercookie/landing/compare/v1.3.3...v1.4.0) (2026-10-20)
+
+
+### Features
+
+* add Impressum and Datenschutzerklärung, self-host external assets ([#166](https://github.com/Hypercookie/landing/issues/166)) ([27152ab](https://github.com/Hypercookie/landing/commit/27152ab8501933f55b88700b6dac450fe54e3156))
+
 ## [1.3.2](https://github.com/Hypercookie/landing/compare/v1.3.1...v1.3.2) (2026-03-31)
 
 
