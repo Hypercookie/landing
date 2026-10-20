@@ -15,6 +15,8 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-sm: 24rem;
+    --container-xl: 36rem;
     --container-4xl: 56rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
@@ -22,8 +24,16 @@
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --text-8xl: 6rem;
+    --text-8xl--line-height: 1;
     --text-9xl: 8rem;
     --text-9xl--line-height: 1;
     --font-weight-bold: 700;
@@ -701,11 +711,11 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
-  .h-screen {
-    height: 100vh;
+  .h-svh {
+    height: 100svh;
   }
-  .max-h-screen {
-    max-height: 100vh;
+  .max-h-svh {
+    max-height: 100svh;
   }
   .min-h-screen {
     min-height: 100vh;
@@ -725,20 +735,20 @@
   .w-36 {
     width: calc(var(--spacing) * 36);
   }
+  .w-full {
+    width: 100%;
+  }
   .w-px {
     width: 1px;
-  }
-  .w-screen {
-    width: 100vw;
   }
   .max-w-4xl {
     max-width: var(--container-4xl);
   }
-  .max-w-screen {
-    max-width: 100vw;
+  .max-w-sm {
+    max-width: var(--container-sm);
   }
-  .min-w-\[150\%\] {
-    min-width: 150%;
+  .min-w-\[200\%\] {
+    min-width: 200%;
   }
   .flex-1 {
     flex: 1;
@@ -770,16 +780,17 @@
   .justify-center {
     justify-content: center;
   }
+  .gap-1 {
+    gap: var(--spacing);
+  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
   .gap-20 {
     gap: calc(var(--spacing) * 20);
-  }
-  :where(.space-x-2 > :not(:last-child)) {
-    --tw-space-x-reverse: 0;
-    margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
-    margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
   }
   :where(.space-x-4 > :not(:last-child)) {
     --tw-space-x-reverse: 0;
@@ -839,6 +850,9 @@
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
@@ -848,11 +862,11 @@
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
   }
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
+  }
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
-  }
-  .py-16 {
-    padding-block: calc(var(--spacing) * 16);
   }
   .pt-1\.5 {
     padding-top: calc(var(--spacing) * 1.5);
@@ -860,17 +874,11 @@
   .pr-6 {
     padding-right: calc(var(--spacing) * 6);
   }
-  .pr-8 {
-    padding-right: calc(var(--spacing) * 8);
-  }
   .pb-12 {
     padding-bottom: calc(var(--spacing) * 12);
   }
   .pl-4 {
     padding-left: calc(var(--spacing) * 4);
-  }
-  .pl-8 {
-    padding-left: calc(var(--spacing) * 8);
   }
   .text-center {
     text-align: center;
@@ -888,13 +896,17 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
-  .text-9xl {
-    font-size: var(--text-9xl);
-    line-height: var(--tw-leading, var(--text-9xl--line-height));
+  .text-7xl {
+    font-size: var(--text-7xl);
+    line-height: var(--tw-leading, var(--text-7xl--line-height));
   }
   .text-base {
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);
@@ -904,12 +916,22 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .text-\[15vw\] {
+    font-size: 15vw;
+  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
   .text-balance {
     text-wrap: balance;
+  }
+  .break-words {
+    overflow-wrap: break-word;
+  }
+  .hyphens-auto {
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
   .text-black {
     color: var(--color-black);
@@ -996,6 +1018,9 @@
     -webkit-user-select: none;
     user-select: none;
   }
+  .\[text-shadow\:0_1px_10px_rgb\(0_0_0\/0\.3\)\] {
+    text-shadow: 0 1px 10px rgb(0 0 0/0.3);
+  }
   @media (hover: hover) {
     .hover\:border-blue-500:hover {
       border-color: var(--color-blue-500);
@@ -1017,6 +1042,41 @@
     }
     .hover\:text-white:hover {
       color: var(--color-white);
+    }
+  }
+  @media (width >= 40rem) {
+    .sm\:max-w-xl {
+      max-width: var(--container-xl);
+    }
+    .sm\:min-w-\[150\%\] {
+      min-width: 150%;
+    }
+    .sm\:flex-row {
+      flex-direction: row;
+    }
+    .sm\:gap-2 {
+      gap: calc(var(--spacing) * 2);
+    }
+    .sm\:px-8 {
+      padding-inline: calc(var(--spacing) * 8);
+    }
+    .sm\:px-16 {
+      padding-inline: calc(var(--spacing) * 16);
+    }
+    .sm\:py-16 {
+      padding-block: calc(var(--spacing) * 16);
+    }
+    .sm\:text-2xl {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+    .sm\:text-3xl {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
+    }
+    .sm\:text-8xl {
+      font-size: var(--text-8xl);
+      line-height: var(--tw-leading, var(--text-8xl--line-height));
     }
   }
   @media (width >= 64rem) {
@@ -1041,6 +1101,9 @@
     .lg\:max-w-1\/2 {
       max-width: calc(1 / 2 * 100%);
     }
+    .lg\:max-w-none {
+      max-width: none;
+    }
     .lg\:min-w-1\/2 {
       min-width: calc(1 / 2 * 100%);
     }
@@ -1053,11 +1116,25 @@
     .lg\:flex-row {
       flex-direction: row;
     }
+    .lg\:px-0 {
+      padding-inline: 0px;
+    }
     .lg\:pl-16 {
       padding-left: calc(var(--spacing) * 16);
     }
+    .lg\:text-3xl {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
+    }
+    .lg\:text-9xl {
+      font-size: var(--text-9xl);
+      line-height: var(--tw-leading, var(--text-9xl--line-height));
+    }
     .lg\:text-black {
       color: var(--color-black);
+    }
+    .lg\:\[text-shadow\:none\] {
+      text-shadow: none;
     }
   }
   @media (prefers-color-scheme: dark) {
