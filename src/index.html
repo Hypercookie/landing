@@ -37,15 +37,15 @@
 <body class="pattern-topography-[#9c92ac]/40 overflow-x-hidden cursor-crosshair select-none dark:pattern-topography-[#323232] dark:bg-gray-900 dark:text-white">
 <script type="module" src="script.js" defer></script>
 <div
-        class="max-w-screen relative h-screen max-h-screen w-screen overflow-hidden lg:flex lg:flex-row"
+        class="relative h-svh max-h-svh w-full overflow-hidden lg:flex lg:flex-row"
 >
     <div
-            class="lg:min-w-1/2 lg:max-w-1/2 lg:relative absolute inset-0 flex  items-center justify-center lg:w-1/2 flex-col"
+            class="lg:min-w-1/2 lg:max-w-1/2 lg:relative absolute inset-0 flex items-center justify-center lg:w-1/2 flex-col px-6 sm:px-16 lg:px-0 [text-shadow:0_1px_10px_rgb(0_0_0/0.3)] lg:[text-shadow:none]"
     >
-        <h1 class="font-space text-9xl text-white dark:text-white  lg:text-black">
+        <h1 class="font-space text-7xl sm:text-8xl lg:text-9xl text-white dark:text-white lg:text-black">
             Hey,
         </h1>
-        <p class="font-space text-3xl text-white text-center text-balance dark:text-white lg:text-black">
+        <p class="font-space text-lg sm:text-2xl lg:text-3xl max-w-sm sm:max-w-xl lg:max-w-none text-white text-center text-balance dark:text-white lg:text-black">
             I'm Jannes, a Java backend developer based in Germany. M.Sc. Computer Science with a focus on graph databases, currently building things at VisualVest in Frankfurt.
         </p>
         <div class="font-space text-base text-white dark:text-white lg:text-black flex-row gap-20 mt-3 hidden lg:flex">
@@ -56,12 +56,12 @@
                 > Contact Me
             </div>
         </div>
-        <div class="flex-row flex lg:hidden gap-20">
-            <button class="text-white text-3xl mt-5 border-2 border-white rounded-lg hover:border-blue-500"
+        <div class="flex-row flex flex-wrap justify-center lg:hidden gap-3 mt-5">
+            <button class="text-white text-lg sm:text-3xl px-3 py-1 border-2 border-white rounded-lg hover:border-blue-500"
                     onclick="window.location.href = 'https://github.com/Hypercookie'">
                 <div class="flex justify-center items-center ml-2 mr-2 mt-1 mb-1">Github</div>
             </button>
-            <button class="text-white text-3xl mt-5 border-2 border-white rounded-lg hover:border-blue-500"
+            <button class="text-white text-lg sm:text-3xl px-3 py-1 border-2 border-white rounded-lg hover:border-blue-500"
                     onclick="window.location.href = 'mailto:jannes@mlrjs.eu'">
                 <div class="flex justify-center items-center ml-2 mr-2 mt-1 mb-1">Contact Me</div>
             </button>
@@ -69,7 +69,7 @@
     </div>
     <div class="lg:min-w-3/5 absolute lg:relative inset-0 flex  items-center justify-center lg:w-3/5 -z-50">
         <svg
-                class="min-w-[150%] lg:min-w-[100%]"
+                class="min-w-[200%] sm:min-w-[150%] lg:min-w-[100%]"
                 viewBox="0 0 200 200"
         >
             <defs>
@@ -91,8 +91,8 @@
             <path id="pathshape" d="" fill="url('#gradient')"></path>
         </svg>
     </div>
-    <div class="absolute bottom-5 w-screen">
-        <div class="w-screen flex justify-center items-center">
+    <div class="absolute bottom-5 w-full">
+        <div class="w-full flex justify-center items-center">
             <svg class="h-10 cursor-cell fill-current stroke-current dark:text-white" xmlns="http://www.w3.org/2000/svg" version="1.1" width="256"
                  onclick="window.location.href= '#Experience'"
                  height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -108,10 +108,10 @@
     </div>
 </div>
 <div class="min-h-screen" id="Experience">
-    <h1 class="font-space text-9xl dark:text-white text-black ml-6 mt-6">
+    <h1 class="font-space text-[15vw] sm:text-8xl lg:text-9xl dark:text-white text-black ml-6 mt-6">
         Experience
     </h1>
-    <div class="mx-auto py-16 pl-8 lg:pl-16 pr-8 max-w-4xl">
+    <div class="mx-auto py-10 sm:py-16 px-4 sm:px-8 lg:pl-16 max-w-4xl">
         <div class="flex flex-col timeline">
             <div class="flex flex-row">
                 <div class="hidden lg:block w-36 shrink-0 text-right pr-6 pt-1.5">
@@ -242,8 +242,8 @@
         </div>
     </div>
 </div>
-<footer class="text-black py-4">
-    <div class="max-w-screen mx-auto text-center flex items-center dark:text-white justify-center space-x-2">
+<footer class="text-black py-4 px-4">
+    <div class="mx-auto text-center flex flex-col sm:flex-row items-center dark:text-white justify-center gap-1 sm:gap-2">
         <p class="font-space text-base">
             ©
             <script>document.write(new Date().getFullYear());</script>
