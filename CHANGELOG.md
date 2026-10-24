@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.1](https://github.com/Hypercookie/landing/compare/v1.4.0...v1.4.1) (2026-10-24)
+
+
+### Bug Fixes
+
+* publish multi-arch image (amd64, arm64) ([64067c6](https://github.com/Hypercookie/landing/commit/64067c6786659d4ba3c50c44ca37812231e1afd6))
+* publish multi-arch image (amd64, arm64) ([b00dd33](https://github.com/Hypercookie/landing/commit/b00dd33e3b691f712cc81d69a735a4cdf3493354))
+
 ## [1.4.0](https://github.com/Hypercookie/landing/compare/v1.3.3...v1.4.0) (2026-10-20)
 
 
