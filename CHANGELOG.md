@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.2](https://github.com/Hypercookie/landing/compare/v1.4.1...v1.4.2) (2026-10-27)
+
+
+### Bug Fixes
+
+* footer says hosted on a k3s cluster instead of NixOS ([fa4e19d](https://github.com/Hypercookie/landing/commit/fa4e19d33abd1d9b56966c6638ed56dc30c54595))
+* footer says hosted on a k3s cluster instead of NixOS ([fee45eb](https://github.com/Hypercookie/landing/commit/fee45eb773f8498ec4941cd4697fdaa53406ae1e))
+
 ## [1.4.1](https://github.com/Hypercookie/landing/compare/v1.4.0...v1.4.1) (2026-10-24)
 
 
