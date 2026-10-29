@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@rozsazoltan/tailwindcss-patterns": "^1.0.1",
     "autoprefixer": "^10.6.1",
     "minify": "^15.3.1",
     "postcss": "^8.5.31",

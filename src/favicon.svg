@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <style>.s{fill:#0B0D12}.d{fill:#FF5A1F}@media (prefers-color-scheme:dark){.s{fill:#EDE8DF}}</style>
+  <g transform="translate(256 256) scale(1.4) translate(-256 -256)">
+    <rect class="s" x="150" y="112" width="212" height="64" rx="20"/>
+    <rect class="s" x="150" y="200" width="156" height="64" rx="20"/>
+    <rect class="s" x="150" y="288" width="64" height="112" rx="20"/>
+    <circle class="d" cx="330" cy="368" r="32"/>
+  </g>
+</svg>
