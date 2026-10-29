@@ -255,6 +255,34 @@
 
 .poodle-say.is-visible { opacity: 1; }
 
+/* When the poodle catches the pointer, it shows its true form. Click it for the source. */
+.poodle.is-devil { opacity: 0; }
+
+.devil {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 51;
+  width: 44px;
+  height: 44px;
+  fill: var(--color-ember);
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+  scale: 0.4;
+  transition:
+    opacity 0.2s ease,
+    scale 0.3s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.devil.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+  scale: 1;
+}
+
+.devil .devil-face { fill: var(--color-ink); }
+
 @media (prefers-color-scheme: dark) {
   .poodle { fill: var(--color-steel); }
   .poodle-say { background: var(--color-slate); }
@@ -272,7 +300,8 @@
 
 @media (prefers-reduced-motion: reduce), (pointer: coarse) {
   .poodle,
-  .poodle-say { display: none; }
+  .poodle-say,
+  .devil { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

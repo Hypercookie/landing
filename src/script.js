@@ -153,19 +153,51 @@ rack?.addEventListener("click", () => {
     rack.setAttribute("aria-pressed", String(on));
 });
 
-// Mephisto's poodle: trails the pointer at a distance, trots while it moves,
-// and after a while of sitting still reveals what it really is.
+// Mephisto's poodle: trails the pointer, and when the pointer holds still it
+// creeps up and catches it. Then it shows des Pudels Kern: a little devil that
+// links to the play. Move the pointer away and it turns back into a poodle.
 const poodle = document.getElementById("poodle");
 const say = document.getElementById("poodle-say");
+const devil = document.getElementById("devil");
 const finePointer = window.matchMedia("(pointer: fine)").matches;
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-if (poodle && say && finePointer && !reducedMotion) {
+if (poodle && say && devil && finePointer && !reducedMotion) {
     const pos = { x: -100, y: -100 };
     const target = { x: -100, y: -100 };
+    const devilAt = { x: 0, y: 0 };
     let facing = 1;
     let lastMove = 0;
-    let saidIt = false;
+    let isDevil = false;
+    let paused = false;
+
+    // The poodle waits politely while the pointer plays with the rack in the hero
+    rack?.addEventListener("pointerenter", () => (paused = true));
+    rack?.addEventListener("pointerleave", () => {
+        paused = false;
+        lastMove = performance.now();
+    });
+
+    const reveal = () => {
+        isDevil = true;
+        devilAt.x = target.x;
+        devilAt.y = target.y;
+        devil.style.transform = `translate(${devilAt.x - 22}px, ${devilAt.y - 22}px)`;
+        say.style.transform = `translate(${devilAt.x + 26}px, ${devilAt.y - 38}px)`;
+        poodle.classList.add("is-devil");
+        devil.classList.add("is-visible");
+        say.classList.add("is-visible");
+    };
+
+    const unmask = () => {
+        isDevil = false;
+        poodle.classList.remove("is-devil");
+        devil.classList.remove("is-visible");
+        say.classList.remove("is-visible");
+        // Pop back out as a poodle a little away from the pointer
+        pos.x = devilAt.x - facing * 60;
+        pos.y = devilAt.y + 18;
+    };
 
     document.addEventListener("pointermove", (ev) => {
         target.x = ev.clientX;
@@ -176,38 +208,31 @@ if (poodle && say && finePointer && !reducedMotion) {
             pos.y = target.y;
             poodle.classList.add("is-awake");
         }
+        if (isDevil && Math.hypot(target.x - devilAt.x, target.y - devilAt.y) > 120) unmask();
     });
     document.documentElement.addEventListener("pointerleave", () => {
         poodle.classList.remove("is-awake");
-        say.classList.remove("is-visible");
+        if (isDevil) unmask();
     });
 
     const step = (now) => {
-        // Sit a little behind and below the pointer, on whichever side it came from
-        const goalX = target.x - facing * 50;
-        const goalY = target.y + 18;
-        const dx = goalX - pos.x;
-        const dy = goalY - pos.y;
-        const dist = Math.hypot(dx, dy);
-        if (dist > 1) {
-            pos.x += dx * 0.08;
-            pos.y += dy * 0.08;
-        }
-        if (Math.abs(dx) > 30) facing = dx > 0 ? 1 : -1;
-        poodle.classList.toggle("is-walking", dist > 6);
+        if (paused) {
+            poodle.classList.remove("is-walking");
+        } else if (!isDevil) {
+            // Trail a little behind and below the pointer; once it holds still, go for it
+            const stalking = now - lastMove > 1500;
+            const goalX = stalking ? target.x : target.x - facing * 50;
+            const goalY = stalking ? target.y : target.y + 18;
+            const dx = goalX - pos.x;
+            const dy = goalY - pos.y;
+            const dist = Math.hypot(dx, dy);
+            pos.x += dx * (stalking ? 0.05 : 0.08);
+            pos.y += dy * (stalking ? 0.05 : 0.08);
+            if (Math.abs(dx) > 30) facing = dx > 0 ? 1 : -1;
+            poodle.classList.toggle("is-walking", dist > 6);
+            poodle.style.transform = `translate(${pos.x - 30}px, ${pos.y - 25}px) scaleX(${facing})`;
 
-        const x = pos.x - 30;
-        const y = pos.y - 25;
-        poodle.style.transform = `translate(${x}px, ${y}px) scaleX(${facing})`;
-        say.style.transform = `translate(${x + (facing > 0 ? 30 : -100)}px, ${y - 22}px)`;
-
-        const idle = now - lastMove;
-        if (poodle.classList.contains("is-awake") && idle > 6000 && !saidIt) {
-            say.classList.add("is-visible");
-            saidIt = true;
-        } else if (idle < 6000 && say.classList.contains("is-visible")) {
-            say.classList.remove("is-visible");
-            saidIt = false;
+            if (stalking && dist < 4 && poodle.classList.contains("is-awake")) reveal();
         }
         requestAnimationFrame(step);
     };
