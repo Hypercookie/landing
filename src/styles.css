@@ -1,27 +1,62 @@
 @import "tailwindcss";
 @source "../src";
 @plugin "@tailwindcss/typography";
-@plugin "@rozsazoltan/tailwindcss-patterns";
 
-/* Space Grotesk, self-hosted (SIL OFL 1.1, see fonts/OFL.txt). No requests to Google Fonts. */
+/* Inter + JetBrains Mono, self-hosted (SIL OFL 1.1, see fonts/OFL-*.txt). No requests to third parties. */
 @font-face {
-  font-family: "Space Grotesk";
+  font-family: "Inter";
   font-style: normal;
   font-display: swap;
-  font-weight: 300 700;
-  src: url("./fonts/space-grotesk-latin-ext-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  src: url("./fonts/inter-latin-ext-wght-normal.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
-  font-family: "Space Grotesk";
+  font-family: "Inter";
   font-style: normal;
   font-display: swap;
-  font-weight: 300 700;
-  src: url("./fonts/space-grotesk-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  src: url("./fonts/inter-latin-wght-normal.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url("./fonts/jetbrains-mono-latin-ext-wght-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url("./fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Faustinus palette (brand.faustinus.eu/BRAND.md). One accent: Ember. No gradients, no shadows. */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-ink: #0b0d12;
+  --color-slate: #1b1f2a;
+  --color-steel: #6b7280;
+  --color-bone: #ede8df;
+  --color-ember: #ff5a1f;
+  --color-ok: #3ddc97;
+  --color-warning: #ffb020;
+
+  /* Slab radius: 20 on 64 (about 30%) */
+  --radius-slab: 30%;
+}
+
+/* Hovering a work / education node dims the other kind of entry */
 .timeline > * {
   transition: opacity 0.2s ease;
 }
@@ -34,47 +69,243 @@
   opacity: 0.25;
 }
 
-.work-icon, .edu-icon {
+.work-icon,
+.edu-icon {
   cursor: pointer;
 }
 
-.present-scramble::after {
-  content: '|';
-  animation: blink 1s step-end infinite;
+/* The status LED that is always on: a slow, calm breathe */
+.led {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .led {
+    animation: none;
+  }
+}
+
+/* Rack mode: hover (or click) the hero mark and its three slabs slide apart into server units.
+   Geometry is the mark at 1.2x: slabs 254/187/77 wide, 77 high, radius 24 (about 30%). */
+.rack {
+  position: relative;
+  display: block;
+  width: 302px;
+  height: 394px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.rack .slab,
+.rack .dot {
+  position: absolute;
+  left: 24px;
+  transition:
+    top 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    left 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.rack .slab {
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--color-ink);
+}
+
+.rack .slab-1 { top: 24px; width: 254px; height: 77px; }
+.rack .slab-2 { top: 130px; width: 187px; height: 77px; }
+.rack .slab-3 { top: 235px; width: 77px; height: 134px; }
+
+.rack .dot {
+  top: 293px;
+  left: 202px;
+  width: 77px;
+  height: 77px;
+  border-radius: 9999px;
+  background: var(--color-ember);
+}
+
+.rack .unit {
+  display: flex;
+  height: 64px;
+  width: 254px;
+  align-items: center;
+  gap: 14px;
+  padding: 0 22px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-bone);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.rack .vents {
+  width: 22px;
+  height: 22px;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Crect x='0' width='2' height='22' rx='1'/%3E%3Crect x='6.7' width='2' height='22' rx='1'/%3E%3Crect x='13.3' width='2' height='22' rx='1'/%3E%3Crect x='20' width='2' height='22' rx='1'/%3E%3C/svg%3E");
+  opacity: 0.35;
+}
+
+.rack .leds {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+  margin-right: 28px;
+}
+
+.rack .leds i {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  animation: blink 1.4s steps(2, jump-none) infinite;
+}
+
+.rack .leds i:nth-child(2) { animation-duration: 0.9s; }
+
+.rack .rack-stats {
+  position: absolute;
+  left: 24px;
+  top: 300px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-steel);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.rack:hover .slab,
+.rack.is-rack .slab { width: 254px; height: 64px; }
+.rack:hover .slab-1,
+.rack.is-rack .slab-1 { top: 48px; }
+.rack:hover .slab-2,
+.rack.is-rack .slab-2 { top: 128px; }
+.rack:hover .slab-3,
+.rack.is-rack .slab-3 { top: 208px; }
+.rack:hover .dot,
+.rack.is-rack .dot { top: 74px; left: 252px; width: 12px; height: 12px; }
+.rack:hover .unit,
+.rack.is-rack .unit,
+.rack:hover .rack-stats,
+.rack.is-rack .rack-stats {
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  .rack .slab { background: var(--color-bone); }
+  .rack .unit { color: var(--color-ink); }
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% { opacity: 1; }
+  50% { opacity: 0.25; }
 }
 
-@theme {
-  --font-space: "Space Grotesk", serif;
+/* Mephisto's poodle trails the pointer. Its eye is the Ember dot. */
+.poodle {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  width: 60px;
+  height: 50px;
+  pointer-events: none;
+  fill: var(--color-ink);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-  --color-knime-yellow: #f9d63b;
-  --color-visualvest: #aee7dc;
-  --color-uni-konstanz: #77c5e7;
+.poodle.is-awake { opacity: 1; }
+.poodle .poodle-eye { fill: var(--color-ember); }
+.poodle .leg { transform-box: fill-box; transform-origin: 50% 0; }
+.poodle.is-walking .leg-a { animation: trot 0.28s ease-in-out infinite alternate; }
+.poodle.is-walking .leg-b { animation: trot 0.28s ease-in-out infinite alternate-reverse; }
+.poodle.is-walking .poodle-body { animation: bob 0.28s ease-in-out infinite alternate; }
 
-  --color-grayscale-50: rgb(247, 247, 247);
-  --color-grayscale-100: rgb(239, 239, 239);
-  --color-grayscale-200: rgb(223, 223, 223);
-  --color-grayscale-300: rgb(202, 202, 202);
-  --color-grayscale-400: rgb(168, 168, 168);
-  --color-grayscale-500: rgb(135, 135, 135);
-  --color-grayscale-600: rgb(109, 109, 109);
-  --color-grayscale-700: rgb(95, 95, 95);
-  --color-grayscale-800: rgb(74, 74, 74);
-  --color-grayscale-900: rgb(61, 61, 61);
+.poodle-say {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  pointer-events: none;
+  border-radius: 9999px;
+  background: var(--color-ink);
+  color: var(--color-bone);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-  --color-blue_scale-50: rgb(248, 247, 255);
-  --color-blue_scale-100: rgb(240, 237, 254);
-  --color-blue_scale-200: rgb(226, 220, 254);
-  --color-blue_scale-300: rgb(206, 195, 253);
-  --color-blue_scale-400: rgb(172, 154, 251);
-  --color-blue_scale-500: rgb(140, 115, 250);
-  --color-blue_scale-600: rgb(107, 75, 248);
-  --color-blue_scale-700: rgb(90, 55, 247);
-  --color-blue_scale-800: rgb(50, 9, 234);
-  --color-blue_scale-900: rgb(42, 8, 197);
+.poodle-say.is-visible { opacity: 1; }
 
+/* When the poodle catches the pointer, it shows its true form. Click it for the source. */
+.poodle.is-devil { opacity: 0; }
+
+.devil {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 51;
+  width: 44px;
+  height: 44px;
+  fill: var(--color-ember);
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+  scale: 0.4;
+  transition:
+    opacity 0.2s ease,
+    scale 0.3s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.devil.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+  scale: 1;
+}
+
+.devil .devil-face { fill: var(--color-ink); }
+
+@media (prefers-color-scheme: dark) {
+  .poodle { fill: var(--color-steel); }
+  .poodle-say { background: var(--color-slate); }
+}
+
+@keyframes trot {
+  from { transform: rotate(-14deg); }
+  to { transform: rotate(14deg); }
+}
+
+@keyframes bob {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1.5px); }
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .poodle,
+  .poodle-say,
+  .devil { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rack .slab,
+  .rack .dot,
+  .rack .leds i { transition: none; animation: none; }
 }
