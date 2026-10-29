@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.5.0](https://github.com/Hypercookie/landing/compare/v1.4.2...v1.5.0) (2026-10-29)
+
+
+### Features
+
+* add rack mode, Mephisto's poodle and a tiny terminal ([85a31e8](https://github.com/Hypercookie/landing/commit/85a31e846acf0c17f93cc9d8dcd5d4d701a05975))
+* link bachelor and master theses ([d7ec588](https://github.com/Hypercookie/landing/commit/d7ec588ff8aaca60425fd48b85a26d8907ff30b9))
+* poodle catches the pointer and turns into a devil linking to Faust ([0d291c4](https://github.com/Hypercookie/landing/commit/0d291c4a7ec30022b3572c24bfe840579790beb5))
+* redesign landing page with Faustinus brand ([316a700](https://github.com/Hypercookie/landing/commit/316a7007d54713f3a5f70d143664f01f335a51b3))
+* redesign landing page with Faustinus brand ([601fb19](https://github.com/Hypercookie/landing/commit/601fb1975c58619c94ff402475bda04f16d13093))
+
+
+### Bug Fixes
+
+* drop decorative 'online' badge from header ([f368c6f](https://github.com/Hypercookie/landing/commit/f368c6f3e5f5b29f9e877307db8a4d67d72725d5))
+
 ## [1.4.2](https://github.com/Hypercookie/landing/compare/v1.4.1...v1.4.2) (2026-10-27)
 
 
