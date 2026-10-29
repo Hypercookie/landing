@@ -41,7 +41,7 @@ Pushing to `master` triggers `.github/workflows/docker-publish.yml`, which:
 ## Tailwind Setup
 
 - **Version**: Tailwind v4, configured entirely in `src/styles.css` (`@theme`, `@plugin`); there is no `tailwind.config.js`
-- **Brand (Faustinus)**: colors `ink` #0B0D12, `slate` #1B1F2A, `steel` #6B7280, `bone` #EDE8DF, single accent `ember` #FF5A1F, status-only `ok` #3DDC97 / `warning` #FFB020. Rules: one accent, no gradients, no shadows, pills instead of sharp corners, circles only for status, `rounded-slab` (30%) for slab shapes, never recolor the mark's dot
+- **Brand (Faustinus)**: colors `ink` #0B0D12, `slate` #1B1F2A, `steel` #6B7280, `bone` #EDE8DF, single accent `ember` #FF5A1F, status-only `ok` #3DDC97 / `warning` #FFB020 (currently unused). Rules: one accent, no gradients, no shadows, pills instead of sharp corners, circles only for status, `rounded-slab` (30%) for slab shapes, never recolor the mark's dot
 - **Fonts**: Inter (`font-sans`, body) and JetBrains Mono (`font-mono`, numbers/labels), self-hosted woff2 in `src/fonts/`. If fonts change, update the font names in `datenschutz.html` section 2
 - **Dark mode**: `media` strategy (Ink background in dark, Bone in light)
 - **Plugins**: `@tailwindcss/typography`
