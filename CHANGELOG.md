@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.0](https://github.com/Hypercookie/landing/compare/v1.6.0...v1.7.0) (2026-10-29)
+
+
+### Features
+
+* remove the poodle ([4a7fbb4](https://github.com/Hypercookie/landing/commit/4a7fbb4a3836e1df03c549ae8fffaf3c3df3f18e))
+* remove the poodle ([74d82fe](https://github.com/Hypercookie/landing/commit/74d82fe01ed61091d6281be8369e84c1782780ef))
+
 ## [1.6.0](https://github.com/Hypercookie/landing/compare/v1.5.0...v1.6.0) (2026-10-29)
 
 
