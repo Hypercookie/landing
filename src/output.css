@@ -1542,6 +1542,11 @@
     opacity: 0.25;
   }
 }
+#term-out {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-steel) transparent;
+  scrollbar-gutter: stable;
+}
 .poodle {
   position: fixed;
   left: 0;
