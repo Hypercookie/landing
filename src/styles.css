@@ -215,6 +215,13 @@
   50% { opacity: 0.25; }
 }
 
+/* Terminal output scrolls with a thin Steel scrollbar instead of the browser default */
+#term-out {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-steel) transparent;
+  scrollbar-gutter: stable;
+}
+
 /* Mephisto's poodle trails the pointer. Its eye is the Ember dot. */
 .poodle {
   position: fixed;
