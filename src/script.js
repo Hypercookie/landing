@@ -23,7 +23,14 @@ const files = {
         "2022       Logistics Provider      Full Stack Development\n" +
         "2020–2023  University of Konstanz  B.Sc. Computer Science",
     "contact.txt": "jannes@mlrjs.eu",
+    "master_thesis.pdf": "binary file. try 'open master_thesis.pdf'.",
+    "bachelor_thesis.pdf": "binary file. try 'open bachelor_thesis.pdf'.",
     "pact.md": "Permission denied. Some contracts are read only after signing. Try 'pact'.",
+};
+
+const theses = {
+    "master_thesis.pdf": "https://cdn.faustinus.eu/Master_Thesis.pdf",
+    "bachelor_thesis.pdf": "https://cdn.faustinus.eu/Bachelor_Thesis.pdf",
 };
 
 const commands = {
@@ -32,6 +39,7 @@ const commands = {
         "  whoami        who is this\n" +
         "  ls            list files\n" +
         "  cat <file>    print a file\n" +
+        "  open <file>   open a thesis pdf\n" +
         "  experience    jump to the timeline\n" +
         "  github        open GitHub\n" +
         "  contact       write me an email\n" +
@@ -48,6 +56,12 @@ const commands = {
     experience: () => {
         document.getElementById("Experience").scrollIntoView({ behavior: "smooth" });
         return "scrolling to experience…";
+    },
+    open: (args) => {
+        const url = theses[args[0]];
+        if (!url) return `open: ${args[0] ?? ""}: cannot open`;
+        window.open(url, "_blank", "noopener");
+        return `opening ${args[0]}…`;
     },
     github: () => {
         window.open("https://github.com/Hypercookie", "_blank");

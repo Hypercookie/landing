@@ -1037,6 +1037,15 @@
   .text-steel {
     color: var(--color-steel);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .decoration-ember {
+    text-decoration-color: var(--color-ember);
+  }
+  .underline-offset-4 {
+    text-underline-offset: 4px;
+  }
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
