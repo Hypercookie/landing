@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.0](https://github.com/Hypercookie/landing/compare/v1.5.0...v1.6.0) (2026-10-29)
+
+
+### Features
+
+* make the poodle shy of the pointer instead of following it ([1f788e7](https://github.com/Hypercookie/landing/commit/1f788e7dfd9b96014fc66b88893540412f2245f3))
+* shy poodle that avoids the pointer, terminal scrollbar fix ([ee37a4f](https://github.com/Hypercookie/landing/commit/ee37a4f71e87aeb1f033bdd8a4f22b3799a7eb61))
+
 ## [1.5.0](https://github.com/Hypercookie/landing/compare/v1.4.2...v1.5.0) (2026-10-29)
 
 
