@@ -3,6 +3,217 @@ document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
 });
 
+// A tiny terminal in the hero. Everything is static, nothing leaves the browser.
+const out = document.getElementById("term-out");
+const input = document.getElementById("term-in");
+const bootedAt = Date.now();
+const history = [];
+let historyIndex = 0;
+
+const files = {
+    "about.txt":
+        "Java backend developer based in Germany.\n" +
+        "M.Sc. Computer Science, focus on graph databases.\n" +
+        "Currently building things at VisualVest in Frankfurt.",
+    "experience.log":
+        "2026–now   VisualVest              Java Backend Development\n" +
+        "2023–2026  KNIME                   Java Development\n" +
+        "2023–2026  University of Konstanz  M.Sc. Computer Science\n" +
+        "2022–2023  University of Konstanz  Full Stack Development\n" +
+        "2022       Logistics Provider      Full Stack Development\n" +
+        "2020–2023  University of Konstanz  B.Sc. Computer Science",
+    "contact.txt": "jannes@mlrjs.eu",
+    "pact.md": "Permission denied. Some contracts are read only after signing. Try 'pact'.",
+};
+
+const commands = {
+    help: () =>
+        "available commands:\n" +
+        "  whoami        who is this\n" +
+        "  ls            list files\n" +
+        "  cat <file>    print a file\n" +
+        "  experience    jump to the timeline\n" +
+        "  github        open GitHub\n" +
+        "  contact       write me an email\n" +
+        "  neofetch      system info\n" +
+        "  uptime        how long this tab has been up\n" +
+        "  clear         clear the screen\n" +
+        "there may be a few more.",
+    whoami: () => "jannes, a java backend developer. scroll down for the long version.",
+    ls: () => Object.keys(files).join("  "),
+    cat: (args) => {
+        if (!args[0]) return "cat: missing file operand";
+        return files[args[0]] ?? `cat: ${args[0]}: No such file or directory`;
+    },
+    experience: () => {
+        document.getElementById("Experience").scrollIntoView({ behavior: "smooth" });
+        return "scrolling to experience…";
+    },
+    github: () => {
+        window.open("https://github.com/Hypercookie", "_blank");
+        return "opening github.com/Hypercookie…";
+    },
+    contact: () => {
+        window.location.href = "mailto:jannes@mlrjs.eu";
+        return "opening your mail client…";
+    },
+    neofetch: () =>
+        " ▆▆▆▆▆▆   jannes@mlrjs\n" +
+        " ▆▆▆▆     ------------\n" +
+        " ▆▆   ●   os: k3s on hetzner, falkenstein\n" +
+        "          shell: java 21, mostly\n" +
+        "          focus: graph databases\n" +
+        "          theme: faustinus (ink / ember)\n" +
+        `          uptime: ${uptime()}`,
+    uptime: () => `up ${uptime()}, 1 user, load average: 0.00, 0.00, 0.00`,
+    date: () => new Date().toString(),
+    echo: (args) => args.join(" "),
+    pwd: () => "/home/jannes",
+    cd: () => "you are already where you need to be.",
+    sudo: () => "jannes is not in the sudoers file. This incident will be reported.",
+    rm: () => "nice try.",
+    vim: () => "you are now trapped. just kidding: you can't run vim in here.",
+    exit: () => "there is no escape. (try closing the tab)",
+    "kubectl": (args) =>
+        args.join(" ") === "get pods"
+            ? "NAME                READY   STATUS    RESTARTS   AGE\nlanding-7f9c4b-x2k  1/1     Running   0          " + uptime()
+            : "usage: kubectl get pods",
+    pact: () =>
+        "Werd ich zum Augenblicke sagen:\n" +
+        "Verweile doch! du bist so schön!\n" +
+        "Dann magst du mich in Fesseln schlagen…\n" +
+        "— Goethe, Faust I\n\n" +
+        "pact signed. the dot stays on. type 'contact' to seal it.",
+    faust: () => commands.pact(),
+    clear: () => {
+        out.replaceChildren();
+        return null;
+    },
+};
+
+function uptime() {
+    const s = Math.floor((Date.now() - bootedAt) / 1000);
+    const m = Math.floor(s / 60);
+    return m ? `${m} min ${s % 60} s` : `${s} s`;
+}
+
+function print(text, className = "") {
+    const line = document.createElement("div");
+    line.className = className;
+    line.textContent = text;
+    out.append(line);
+    out.scrollTop = out.scrollHeight;
+}
+
+function run(raw) {
+    const line = raw.trim();
+    if (!line) return;
+    history.push(line);
+    historyIndex = history.length;
+    print(`~ $ ${line}`, "text-steel");
+    const [name, ...args] = line.split(/\s+/);
+    const command = commands[name.toLowerCase()];
+    if (!command) {
+        print(`${name}: command not found. try 'help'.`, "text-ember");
+        return;
+    }
+    const result = command(args);
+    if (result) print(result);
+}
+
+if (out && input) {
+    input.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter") {
+            run(input.value);
+            input.value = "";
+        } else if (ev.key === "ArrowUp" && historyIndex > 0) {
+            ev.preventDefault();
+            input.value = history[--historyIndex];
+        } else if (ev.key === "ArrowDown") {
+            ev.preventDefault();
+            historyIndex = Math.min(historyIndex + 1, history.length);
+            input.value = history[historyIndex] ?? "";
+        } else if (ev.key === "Tab" && input.value) {
+            const [name, ...rest] = input.value.split(" ");
+            const pool = rest.length ? Object.keys(files) : Object.keys(commands);
+            const prefix = rest.length ? rest[rest.length - 1] : name;
+            const match = pool.find((c) => c.startsWith(prefix));
+            if (match) {
+                ev.preventDefault();
+                input.value = rest.length ? [name, ...rest.slice(0, -1), match].join(" ") : match;
+            }
+        }
+    });
+}
+
+// Rack mode: hover works on desktop, a click (or Enter) pins it
+const rack = document.getElementById("rack");
+rack?.addEventListener("click", () => {
+    const on = rack.classList.toggle("is-rack");
+    rack.setAttribute("aria-pressed", String(on));
+});
+
+// Mephisto's poodle: trails the pointer at a distance, trots while it moves,
+// and after a while of sitting still reveals what it really is.
+const poodle = document.getElementById("poodle");
+const say = document.getElementById("poodle-say");
+const finePointer = window.matchMedia("(pointer: fine)").matches;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (poodle && say && finePointer && !reducedMotion) {
+    const pos = { x: -100, y: -100 };
+    const target = { x: -100, y: -100 };
+    let facing = 1;
+    let lastMove = 0;
+    let saidIt = false;
+
+    document.addEventListener("pointermove", (ev) => {
+        target.x = ev.clientX;
+        target.y = ev.clientY;
+        lastMove = performance.now();
+        if (!poodle.classList.contains("is-awake")) {
+            pos.x = target.x - 80;
+            pos.y = target.y;
+            poodle.classList.add("is-awake");
+        }
+    });
+    document.documentElement.addEventListener("pointerleave", () => {
+        poodle.classList.remove("is-awake");
+        say.classList.remove("is-visible");
+    });
+
+    const step = (now) => {
+        // Sit a little behind and below the pointer, on whichever side it came from
+        const goalX = target.x - facing * 50;
+        const goalY = target.y + 18;
+        const dx = goalX - pos.x;
+        const dy = goalY - pos.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist > 1) {
+            pos.x += dx * 0.08;
+            pos.y += dy * 0.08;
+        }
+        if (Math.abs(dx) > 30) facing = dx > 0 ? 1 : -1;
+        poodle.classList.toggle("is-walking", dist > 6);
+
+        const x = pos.x - 30;
+        const y = pos.y - 25;
+        poodle.style.transform = `translate(${x}px, ${y}px) scaleX(${facing})`;
+        say.style.transform = `translate(${x + (facing > 0 ? 30 : -100)}px, ${y - 22}px)`;
+
+        const idle = now - lastMove;
+        if (poodle.classList.contains("is-awake") && idle > 6000 && !saidIt) {
+            say.classList.add("is-visible");
+            saidIt = true;
+        } else if (idle < 6000 && say.classList.contains("is-visible")) {
+            say.classList.remove("is-visible");
+            saidIt = false;
+        }
+        requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+}
+
 console.log(
     "-----------------------------------------\n" +
     "Welcome... to the secrets of the console!\n" +
