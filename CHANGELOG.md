@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/Hypercookie/landing/compare/v1.8.0...v1.9.0) (2026-11-10)
+
+
+### Features
+
+* label rack units with the real node names ([c70e863](https://github.com/Hypercookie/landing/commit/c70e86384f47cf401f5d2b822a6bc2b0000c1122))
+* label rack units with the real node names ([e286c4e](https://github.com/Hypercookie/landing/commit/e286c4e87db83233ec6f5662f63431b73d03e073))
+
 ## [1.8.0](https://github.com/Hypercookie/landing/compare/v1.7.0...v1.8.0) (2026-11-10)
 
 
