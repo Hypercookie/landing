@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.0](https://github.com/Hypercookie/landing/compare/v1.7.0...v1.8.0) (2026-11-10)
+
+
+### Features
+
+* live cluster data in the rack and kubectl get nodes ([1b6de2c](https://github.com/Hypercookie/landing/commit/1b6de2cb3b3288fc7ad5478025dfa5963aadf576))
+* live cluster data in the rack and kubectl get nodes ([1ba150f](https://github.com/Hypercookie/landing/commit/1ba150ffc772dadbcee1087d320aceeb08bab084))
+
 ## [1.7.0](https://github.com/Hypercookie/landing/compare/v1.6.0...v1.7.0) (2026-10-29)
 
 
