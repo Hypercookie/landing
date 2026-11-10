@@ -27,7 +27,7 @@ This is a single-page static portfolio site with no framework or bundler.
 - **`src/impressum.html`**, **`src/datenschutz.html`** — legal pages (German), styled with `prose`
 - **`src/styles.css`** — Tailwind v4 source: self-hosted fonts, Faustinus `@theme` tokens, a few hand-written rules
 - **`src/output.css`** — compiled output, committed and served directly
-- **`src/script.js`** — footer year + console easter egg
+- **`src/script.js`** — footer year, hero terminal, console easter egg, live rack. The rack (hover/click) and `kubectl get nodes` fetch `/api/rack` on the same origin (served by `apps/rack-status` in the faustinus/cloud repo): real Ready/CPU/memory of the three servers. On timeout (1.5 s), error, invalid shape or data older than 2 min the rack shows its static default again
 - **`src/favicon.{ico,svg}`, `src/apple-touch-icon.png`, `src/img/brand/`** — Faustinus brand assets, copied from the brand kit (served locally, not from brand.faustinus.eu, so the page loads nothing from third parties as the Datenschutzerklärung promises)
 
 ## Deployment
