@@ -115,9 +115,11 @@ async function kubectlGetNodes() {
     if (!d) return "Unable to connect to the server: i/o timeout";
     const pad = (s, w) => String(s).padEnd(w);
     const pct = (v) => (v === null ? "?" : `${v}%`);
+    const names = d.nodes.map((n, i) => n.name ?? `u${i + 1}`);
+    const w = Math.max(4, ...names.map((s) => s.length)) + 2;
     return [
-        pad("NAME", 6) + pad("STATUS", 10) + pad("CPU", 6) + "MEMORY",
-        ...d.nodes.map((n) => pad(`u${n.u ?? "?"}`, 6) + pad(n.ready ? "Ready" : "NotReady", 10) + pad(pct(n.cpu), 6) + pct(n.mem)),
+        pad("NAME", w) + pad("STATUS", 10) + pad("CPU", 6) + "MEMORY",
+        ...d.nodes.map((n, i) => pad(names[i], w) + pad(n.ready ? "Ready" : "NotReady", 10) + pad(pct(n.cpu), 6) + pct(n.mem)),
     ].join("\n");
 }
 
@@ -212,13 +214,14 @@ async function fetchRack() {
 
 function validRack(d) {
     const pct = (v) => v === null || (Number.isInteger(v) && v >= 0 && v <= 100);
+    const name = (v) => v === undefined || (typeof v === "string" && /^[a-z0-9][a-z0-9-]{0,31}$/.test(v));
     return (
         d !== null &&
         typeof d === "object" &&
         Array.isArray(d.nodes) &&
         d.nodes.length >= 1 &&
         d.nodes.length <= 8 &&
-        d.nodes.every((n) => n && typeof n.ready === "boolean" && pct(n.cpu) && pct(n.mem)) &&
+        d.nodes.every((n) => n && typeof n.ready === "boolean" && pct(n.cpu) && pct(n.mem) && name(n.name)) &&
         typeof d.ready7d === "number" &&
         d.ready7d >= 0 &&
         d.ready7d <= 100 &&
@@ -232,8 +235,10 @@ if (rack) {
     const slabs = [...rack.querySelectorAll(".slab")];
     const stats = rack.querySelector(".rack-stats");
     const leds = slabs.map((s) => [...s.querySelectorAll(".leds i")]);
+    const labels = slabs.map((s) => s.querySelector(".unit-name"));
     const defaults = {
         stats: stats.textContent,
+        labels: labels.map((l) => l?.textContent),
         leds: leds.map((pair) => pair.map((i) => i.className)),
     };
     let timer = null;
@@ -252,6 +257,7 @@ if (rack) {
             }),
         );
         slabs.forEach((s) => s.removeAttribute("title"));
+        labels.forEach((l, s) => l && (l.textContent = defaults.labels[s]));
     }
 
     function showLive(d) {
@@ -261,6 +267,7 @@ if (rack) {
         slabs.forEach((slab, s) => {
             const n = d.nodes[s];
             const [power, load] = leds[s];
+            if (labels[s]) labels[s].textContent = n?.name ? `u${s + 1} · ${n.name}` : defaults.labels[s];
             if (!n) {
                 power.className = load.className = "bg-steel";
                 slab.title = "empty slot";
