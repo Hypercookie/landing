@@ -855,10 +855,6 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
   }
-  .border-dashed {
-    --tw-border-style: dashed;
-    border-style: dashed;
-  }
   .border-ink {
     border-color: var(--color-ink);
   }
@@ -1412,6 +1408,20 @@
 }
 .timeline .kind {
   cursor: default;
+}
+.bar-mixed {
+  position: relative;
+  border: 2px solid currentColor;
+}
+.bar-mixed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1'/%3E%3C/svg%3E") repeat;
+  mask-size: 4px 4px;
+  mask-position: center;
 }
 .led {
   animation: breathe 3s ease-in-out infinite;
