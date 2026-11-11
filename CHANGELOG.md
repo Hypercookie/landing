@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.10.0](https://github.com/Hypercookie/landing/compare/v1.9.0...v1.10.0) (2026-11-11)
+
+
+### Features
+
+* keep the timeline's year scale in view on mobile ([729cccb](https://github.com/Hypercookie/landing/commit/729cccb2012308193246b8c9c92bff463280db6d))
+* list the timeline newest first ([71c89b3](https://github.com/Hypercookie/landing/commit/71c89b36075860d09fc32c232c4e7942d7de8477))
+* redraw the experience timeline as year spans ([f9281b1](https://github.com/Hypercookie/landing/commit/f9281b1166816f7185176699cc10005c1016295a))
+* redraw the experience timeline as year spans ([61883c6](https://github.com/Hypercookie/landing/commit/61883c64d65900880224efadbff5084bc12e5a83))
+
 ## [1.9.0](https://github.com/Hypercookie/landing/compare/v1.8.0...v1.9.0) (2026-11-10)
 
 
