@@ -308,6 +308,29 @@ if (rack) {
     rack.addEventListener("click", start);
 }
 
+// Timeline filter chips: click pins "work" or "study", a second click unpins. A mouse hover
+// previews a kind. The section keeps its height while previewing; otherwise near the bottom of the
+// page the shorter list scrolls the chip out from under the pointer and the preview flickers.
+const tl = document.querySelector(".tl");
+tl?.querySelectorAll("[data-filter]").forEach((chip) => {
+    chip.addEventListener("pointerenter", (e) => {
+        if (e.pointerType !== "mouse") return;
+        tl.style.minHeight = `${tl.offsetHeight}px`;
+        tl.dataset.preview = chip.dataset.filter;
+    });
+    chip.addEventListener("pointerleave", () => {
+        delete tl.dataset.preview;
+        tl.style.minHeight = "";
+    });
+    chip.addEventListener("click", () => {
+        if (tl.dataset.show === chip.dataset.filter) delete tl.dataset.show;
+        else tl.dataset.show = chip.dataset.filter;
+        tl.querySelectorAll("[data-filter]").forEach((c) =>
+            c.setAttribute("aria-pressed", String(c.dataset.filter === tl.dataset.show)),
+        );
+    });
+});
+
 console.log(
     "-----------------------------------------\n" +
     "Welcome... to the secrets of the console!\n" +

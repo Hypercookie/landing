@@ -56,18 +56,18 @@
   --radius-slab: 30%;
 }
 
-/* Hovering an entry's kind label (work / study) dims the other kind */
-.timeline > * {
-  transition: opacity 0.2s ease;
+/* Timeline filter (script.js): data-show is the pinned kind, data-preview the hovered chip,
+   which wins while the pointer is on it. Roles that are both work and study stay in either view. */
+.tl[data-show="work"] li[data-kind="study"],
+.tl[data-show="study"] li[data-kind="work"],
+.tl[data-preview="work"] li[data-kind="study"],
+.tl[data-preview="study"] li[data-kind="work"] {
+  display: none;
 }
 
-.timeline:has([data-kind="work"] .kind:hover) > [data-kind="study"],
-.timeline:has([data-kind="study"] .kind:hover) > [data-kind="work"] {
-  opacity: 0.25;
-}
-
-.timeline .kind {
-  cursor: default;
+.tl[data-preview="work"] li[data-kind="work"],
+.tl[data-preview="study"] li[data-kind="study"] {
+  display: grid;
 }
 
 /* Timeline bar for a role that is work and study at once: outlined like study, dotted fill

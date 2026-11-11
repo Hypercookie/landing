@@ -222,13 +222,47 @@
           Experience
         </h2>
 
-        <div class="mt-12">
+        <div class="tl mt-12">
           <div
             class="sticky top-0 z-10 grid grid-cols-1 border-b border-ink/10 bg-bone py-2 lg:static lg:grid-cols-[24rem_1fr] lg:gap-x-8 lg:border-0 lg:py-0 dark:border-bone/10 dark:bg-ink"
           >
-            <span class="hidden font-mono text-xs text-steel lg:block"
-              >solid = work · hollow = study</span
+            <div
+              class="mb-2 flex items-center gap-2 font-mono text-xs text-steel lg:mb-0"
+              role="group"
+              aria-label="Filter timeline"
             >
+              <button
+                type="button"
+                data-filter="work"
+                aria-pressed="false"
+                class="group flex cursor-pointer items-center gap-2 rounded-full border border-ink/20 px-3 py-1 transition-colors hover:border-ember aria-pressed:border-ember aria-pressed:text-ember dark:border-bone/20"
+              >
+                <span
+                  class="h-1.5 w-4 rounded-full bg-current"
+                  aria-hidden="true"
+                ></span
+                >work<span
+                  class="hidden group-aria-pressed:inline"
+                  aria-hidden="true"
+                  >×</span
+                ></button
+              ><button
+                type="button"
+                data-filter="study"
+                aria-pressed="false"
+                class="group flex cursor-pointer items-center gap-2 rounded-full border border-ink/20 px-3 py-1 transition-colors hover:border-ember aria-pressed:border-ember aria-pressed:text-ember dark:border-bone/20"
+              >
+                <span
+                  class="h-1.5 w-4 rounded-full border border-current"
+                  aria-hidden="true"
+                ></span
+                >study<span
+                  class="hidden group-aria-pressed:inline"
+                  aria-hidden="true"
+                  >×</span
+                >
+              </button>
+            </div>
             <div
               class="grid font-mono text-[10px] text-steel sm:text-xs"
               style="grid-template-columns: repeat(7, minmax(0, 1fr))"
