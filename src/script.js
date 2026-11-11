@@ -21,7 +21,7 @@ const files = {
         "2023–2026  KNIME                   Java Development\n" +
         "2023–2026  University of Konstanz  M.Sc. Computer Science\n" +
         "2022–2023  University of Konstanz  Full Stack Development\n" +
-        "2022       Logistics Provider      Full Stack Development\n" +
+        "2020–2022  University of Konstanz  Student Tutor (Java)\n" +
         "2020–2023  University of Konstanz  B.Sc. Computer Science",
     "contact.txt": "jannes@mlrjs.eu",
     "master_thesis.pdf": "binary file. try 'open master_thesis.pdf'.",
