@@ -56,22 +56,18 @@
   --radius-slab: 30%;
 }
 
-/* Hovering a work / education node dims the other kind of entry */
+/* Hovering an entry's kind label (work / study) dims the other kind */
 .timeline > * {
   transition: opacity 0.2s ease;
 }
 
-.timeline:has(.work-icon:hover) > *:has(.edu-icon) {
+.timeline:has([data-kind="work"] .kind:hover) > [data-kind="study"],
+.timeline:has([data-kind="study"] .kind:hover) > [data-kind="work"] {
   opacity: 0.25;
 }
 
-.timeline:has(.edu-icon:hover) > *:has(.work-icon) {
-  opacity: 0.25;
-}
-
-.work-icon,
-.edu-icon {
-  cursor: pointer;
+.timeline .kind {
+  cursor: default;
 }
 
 /* The status LED that is always on: a slow, calm breathe */
