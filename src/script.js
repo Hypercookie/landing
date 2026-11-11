@@ -21,7 +21,7 @@ const files = {
         "2023–2026  KNIME                   Java Development\n" +
         "2023–2026  University of Konstanz  M.Sc. Computer Science\n" +
         "2022–2023  University of Konstanz  Full Stack Development\n" +
-        "2022       Logistics Provider      Full Stack Development\n" +
+        "2020–2022  University of Konstanz  Student Tutor (Java)\n" +
         "2020–2023  University of Konstanz  B.Sc. Computer Science",
     "contact.txt": "jannes@mlrjs.eu",
     "master_thesis.pdf": "binary file. try 'open master_thesis.pdf'.",
@@ -307,6 +307,29 @@ if (rack) {
     rack.addEventListener("focus", start);
     rack.addEventListener("click", start);
 }
+
+// Timeline filter chips: click pins "work" or "study", a second click unpins. A mouse hover
+// previews a kind. The section keeps its height while previewing; otherwise near the bottom of the
+// page the shorter list scrolls the chip out from under the pointer and the preview flickers.
+const tl = document.querySelector(".tl");
+tl?.querySelectorAll("[data-filter]").forEach((chip) => {
+    chip.addEventListener("pointerenter", (e) => {
+        if (e.pointerType !== "mouse") return;
+        tl.style.minHeight = `${tl.offsetHeight}px`;
+        tl.dataset.preview = chip.dataset.filter;
+    });
+    chip.addEventListener("pointerleave", () => {
+        delete tl.dataset.preview;
+        tl.style.minHeight = "";
+    });
+    chip.addEventListener("click", () => {
+        if (tl.dataset.show === chip.dataset.filter) delete tl.dataset.show;
+        else tl.dataset.show = chip.dataset.filter;
+        tl.querySelectorAll("[data-filter]").forEach((c) =>
+            c.setAttribute("aria-pressed", String(c.dataset.filter === tl.dataset.show)),
+        );
+    });
+});
 
 console.log(
     "-----------------------------------------\n" +

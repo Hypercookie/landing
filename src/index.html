@@ -222,15 +222,50 @@
           Experience
         </h2>
 
-        <div class="mt-12">
+        <div class="tl mt-12">
           <div
             class="sticky top-0 z-10 grid grid-cols-1 border-b border-ink/10 bg-bone py-2 lg:static lg:grid-cols-[24rem_1fr] lg:gap-x-8 lg:border-0 lg:py-0 dark:border-bone/10 dark:bg-ink"
           >
-            <span class="hidden font-mono text-xs text-steel lg:block"
-              >solid = work · hollow = study</span
-            >
             <div
-              class="grid grid-cols-7 font-mono text-[10px] text-steel sm:text-xs"
+              class="mb-2 flex items-center gap-2 font-mono text-xs text-steel lg:mb-0"
+              role="group"
+              aria-label="Filter timeline"
+            >
+              <button
+                type="button"
+                data-filter="work"
+                aria-pressed="false"
+                class="group flex cursor-pointer items-center gap-2 rounded-full border border-ink/20 px-3 py-1 transition-colors hover:border-ember aria-pressed:border-ember aria-pressed:text-ember dark:border-bone/20"
+              >
+                <span
+                  class="h-1.5 w-4 rounded-full bg-current"
+                  aria-hidden="true"
+                ></span
+                >work<span
+                  class="hidden group-aria-pressed:inline"
+                  aria-hidden="true"
+                  >×</span
+                ></button
+              ><button
+                type="button"
+                data-filter="study"
+                aria-pressed="false"
+                class="group flex cursor-pointer items-center gap-2 rounded-full border border-ink/20 px-3 py-1 transition-colors hover:border-ember aria-pressed:border-ember aria-pressed:text-ember dark:border-bone/20"
+              >
+                <span
+                  class="h-1.5 w-4 rounded-full border border-current"
+                  aria-hidden="true"
+                ></span
+                >study<span
+                  class="hidden group-aria-pressed:inline"
+                  aria-hidden="true"
+                  >×</span
+                >
+              </button>
+            </div>
+            <div
+              class="grid font-mono text-[10px] text-steel sm:text-xs"
+              style="grid-template-columns: repeat(7, minmax(0, 1fr))"
             >
               <span class="border-l border-ink/15 pl-2 dark:border-bone/15"
                 >2020</span
@@ -273,119 +308,40 @@
               </div>
               <div
                 class="grid min-h-8 items-center self-stretch"
-                style="grid-template-columns: repeat(14, minmax(0, 1fr))"
+                style="grid-template-columns: repeat(84, minmax(0, 1fr))"
                 aria-hidden="true"
               >
                 <span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 1 / span 2"
+                  style="grid-row: 1; grid-column: 1 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 3 / span 2"
+                  style="grid-row: 1; grid-column: 13 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 5 / span 2"
+                  style="grid-row: 1; grid-column: 25 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 7 / span 2"
+                  style="grid-row: 1; grid-column: 37 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 9 / span 2"
+                  style="grid-row: 1; grid-column: 49 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 11 / span 2"
+                  style="grid-row: 1; grid-column: 61 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 13 / span 2"
+                  style="grid-row: 1; grid-column: 73 / span 12"
                 ></span>
                 <span
                   class="h-3 rounded-full bg-ember"
-                  style="grid-row: 1; grid-column: 13 / 15"
-                ></span>
-              </div>
-            </li>
-            <li
-              data-kind="work"
-              class="grid grid-cols-1 gap-y-3 py-5 lg:grid-cols-[24rem_1fr] lg:items-center lg:gap-x-8"
-            >
-              <div class="min-w-0">
-                <div class="flex flex-wrap items-baseline gap-x-3">
-                  <a
-                    href="https://www.knime.com/"
-                    target="_blank"
-                    class="text-xl font-semibold tracking-tight transition-colors hover:text-ember"
-                    >KNIME</a
-                  >
-                  <span class="kind font-mono text-xs text-steel">work</span>
-                </div>
-                <div class="mt-0.5 font-mono text-xs text-steel">
-                  Java Development · 2023 – 2026
-                </div>
-                <div class="mt-1 font-mono text-xs text-steel/80">
-                  <a
-                    href="https://quarkus.io"
-                    target="_blank"
-                    class="transition-colors hover:text-ember"
-                    >Quarkus</a
-                  >
-                  /
-                  <a
-                    href="https://jakarta.ee"
-                    target="_blank"
-                    class="transition-colors hover:text-ember"
-                    >Jakarta EE</a
-                  >
-                  /
-                  <a
-                    href="https://kubernetes.io"
-                    target="_blank"
-                    class="transition-colors hover:text-ember"
-                    >Kubernetes</a
-                  >
-                </div>
-              </div>
-              <div
-                class="grid min-h-8 items-center self-stretch"
-                style="grid-template-columns: repeat(14, minmax(0, 1fr))"
-                aria-hidden="true"
-              >
-                <span
-                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 1 / span 2"
-                ></span
-                ><span
-                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 3 / span 2"
-                ></span
-                ><span
-                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 5 / span 2"
-                ></span
-                ><span
-                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 7 / span 2"
-                ></span
-                ><span
-                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 9 / span 2"
-                ></span
-                ><span
-                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 11 / span 2"
-                ></span
-                ><span
-                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 13 / span 2"
-                ></span>
-                <span
-                  class="h-3 rounded-full bg-ink dark:bg-bone"
-                  style="grid-row: 1; grid-column: 7 / 13"
+                  style="grid-row: 1; grid-column: 73 / 85"
                 ></span>
               </div>
             </li>
@@ -404,7 +360,7 @@
                   <span class="kind font-mono text-xs text-steel">study</span>
                 </div>
                 <div class="mt-0.5 font-mono text-xs text-steel">
-                  M.Sc. Computer Science · 2023 – 2026
+                  M.Sc. Computer Science · Oct 2023 – Apr 2026
                 </div>
                 <div class="mt-1 font-mono text-xs text-steel/80">
                   <a
@@ -440,40 +396,119 @@
               </div>
               <div
                 class="grid min-h-8 items-center self-stretch"
-                style="grid-template-columns: repeat(14, minmax(0, 1fr))"
+                style="grid-template-columns: repeat(84, minmax(0, 1fr))"
                 aria-hidden="true"
               >
                 <span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 1 / span 2"
+                  style="grid-row: 1; grid-column: 1 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 3 / span 2"
+                  style="grid-row: 1; grid-column: 13 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 5 / span 2"
+                  style="grid-row: 1; grid-column: 25 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 7 / span 2"
+                  style="grid-row: 1; grid-column: 37 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 9 / span 2"
+                  style="grid-row: 1; grid-column: 49 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 11 / span 2"
+                  style="grid-row: 1; grid-column: 61 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 13 / span 2"
+                  style="grid-row: 1; grid-column: 73 / span 12"
                 ></span>
                 <span
                   class="h-3 rounded-full border-2 border-ink dark:border-bone"
-                  style="grid-row: 1; grid-column: 7 / 13"
+                  style="grid-row: 1; grid-column: 46 / 76"
+                ></span>
+              </div>
+            </li>
+            <li
+              data-kind="work"
+              class="grid grid-cols-1 gap-y-3 py-5 lg:grid-cols-[24rem_1fr] lg:items-center lg:gap-x-8"
+            >
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-baseline gap-x-3">
+                  <a
+                    href="https://www.knime.com/"
+                    target="_blank"
+                    class="text-xl font-semibold tracking-tight transition-colors hover:text-ember"
+                    >KNIME</a
+                  >
+                  <span class="kind font-mono text-xs text-steel">work</span>
+                </div>
+                <div class="mt-0.5 font-mono text-xs text-steel">
+                  Java Development · Apr 2023 – 2026
+                </div>
+                <div class="mt-1 font-mono text-xs text-steel/80">
+                  <a
+                    href="https://quarkus.io"
+                    target="_blank"
+                    class="transition-colors hover:text-ember"
+                    >Quarkus</a
+                  >
+                  /
+                  <a
+                    href="https://jakarta.ee"
+                    target="_blank"
+                    class="transition-colors hover:text-ember"
+                    >Jakarta EE</a
+                  >
+                  /
+                  <a
+                    href="https://kubernetes.io"
+                    target="_blank"
+                    class="transition-colors hover:text-ember"
+                    >Kubernetes</a
+                  >
+                </div>
+              </div>
+              <div
+                class="grid min-h-8 items-center self-stretch"
+                style="grid-template-columns: repeat(84, minmax(0, 1fr))"
+                aria-hidden="true"
+              >
+                <span
+                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
+                  style="grid-row: 1; grid-column: 1 / span 12"
+                ></span
+                ><span
+                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
+                  style="grid-row: 1; grid-column: 13 / span 12"
+                ></span
+                ><span
+                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
+                  style="grid-row: 1; grid-column: 25 / span 12"
+                ></span
+                ><span
+                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
+                  style="grid-row: 1; grid-column: 37 / span 12"
+                ></span
+                ><span
+                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
+                  style="grid-row: 1; grid-column: 49 / span 12"
+                ></span
+                ><span
+                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
+                  style="grid-row: 1; grid-column: 61 / span 12"
+                ></span
+                ><span
+                  class="self-stretch border-l border-ink/10 dark:border-bone/10"
+                  style="grid-row: 1; grid-column: 73 / span 12"
+                ></span>
+                <span
+                  class="h-3 rounded-full bg-ink dark:bg-bone"
+                  style="grid-row: 1; grid-column: 40 / 73"
                 ></span>
               </div>
             </li>
@@ -492,7 +527,7 @@
                   <span class="kind font-mono text-xs text-steel">work</span>
                 </div>
                 <div class="mt-0.5 font-mono text-xs text-steel">
-                  Full Stack Development · 2022 – 2023
+                  Full Stack Development · Apr 2022 – Apr 2023
                 </div>
                 <div class="mt-1 font-mono text-xs text-steel/80">
                   <a
@@ -519,116 +554,107 @@
               </div>
               <div
                 class="grid min-h-8 items-center self-stretch"
-                style="grid-template-columns: repeat(14, minmax(0, 1fr))"
+                style="grid-template-columns: repeat(84, minmax(0, 1fr))"
                 aria-hidden="true"
               >
                 <span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 1 / span 2"
+                  style="grid-row: 1; grid-column: 1 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 3 / span 2"
+                  style="grid-row: 1; grid-column: 13 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 5 / span 2"
+                  style="grid-row: 1; grid-column: 25 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 7 / span 2"
+                  style="grid-row: 1; grid-column: 37 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 9 / span 2"
+                  style="grid-row: 1; grid-column: 49 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 11 / span 2"
+                  style="grid-row: 1; grid-column: 61 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 13 / span 2"
+                  style="grid-row: 1; grid-column: 73 / span 12"
                 ></span>
                 <span
                   class="h-3 rounded-full bg-ink dark:bg-bone"
-                  style="grid-row: 1; grid-column: 5 / 7"
+                  style="grid-row: 1; grid-column: 28 / 40"
                 ></span>
               </div>
             </li>
             <li
-              data-kind="work"
+              data-kind="both"
               class="grid grid-cols-1 gap-y-3 py-5 lg:grid-cols-[24rem_1fr] lg:items-center lg:gap-x-8"
             >
               <div class="min-w-0">
                 <div class="flex flex-wrap items-baseline gap-x-3">
-                  <span class="text-xl font-semibold tracking-tight"
-                    >Logistics Provider</span
+                  <a
+                    href="https://www.uni-konstanz.de/"
+                    target="_blank"
+                    class="text-xl font-semibold tracking-tight transition-colors hover:text-ember"
+                    >University of Konstanz</a
                   >
-                  <span class="kind font-mono text-xs text-steel">work</span>
+                  <span class="kind font-mono text-xs text-steel"
+                    >work · study</span
+                  >
                 </div>
                 <div class="mt-0.5 font-mono text-xs text-steel">
-                  Full Stack Development · 2022
+                  Student Tutor · Oct 2020 – Apr 2022
                 </div>
                 <div class="mt-1 font-mono text-xs text-steel/80">
                   <a
-                    href="https://angular.dev"
+                    href="https://dev.java"
                     target="_blank"
                     class="transition-colors hover:text-ember"
-                    >Angular</a
-                  >
-                  /
-                  <a
-                    href="https://www.python.org"
-                    target="_blank"
-                    class="transition-colors hover:text-ember"
-                    >Python</a
-                  >
-                  /
-                  <a
-                    href="https://protobuf.dev"
-                    target="_blank"
-                    class="transition-colors hover:text-ember"
-                    >Protobuf</a
+                    >Java</a
                   >
                 </div>
               </div>
               <div
                 class="grid min-h-8 items-center self-stretch"
-                style="grid-template-columns: repeat(14, minmax(0, 1fr))"
+                style="grid-template-columns: repeat(84, minmax(0, 1fr))"
                 aria-hidden="true"
               >
                 <span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 1 / span 2"
+                  style="grid-row: 1; grid-column: 1 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 3 / span 2"
+                  style="grid-row: 1; grid-column: 13 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 5 / span 2"
+                  style="grid-row: 1; grid-column: 25 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 7 / span 2"
+                  style="grid-row: 1; grid-column: 37 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 9 / span 2"
+                  style="grid-row: 1; grid-column: 49 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 11 / span 2"
+                  style="grid-row: 1; grid-column: 61 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 13 / span 2"
+                  style="grid-row: 1; grid-column: 73 / span 12"
                 ></span>
                 <span
-                  class="h-3 rounded-full bg-ink dark:bg-bone"
-                  style="grid-row: 1; grid-column: 5 / 6"
+                  class="bar-mixed h-3 rounded-full text-ink dark:text-bone"
+                  style="grid-row: 1; grid-column: 10 / 28"
                 ></span>
               </div>
             </li>
@@ -647,7 +673,7 @@
                   <span class="kind font-mono text-xs text-steel">study</span>
                 </div>
                 <div class="mt-0.5 font-mono text-xs text-steel">
-                  B.Sc. Computer Science · 2020 – 2023
+                  B.Sc. Computer Science · Apr 2020 – Oct 2023
                 </div>
                 <div class="mt-1 font-mono text-xs text-steel/80">
                   <a
@@ -683,40 +709,40 @@
               </div>
               <div
                 class="grid min-h-8 items-center self-stretch"
-                style="grid-template-columns: repeat(14, minmax(0, 1fr))"
+                style="grid-template-columns: repeat(84, minmax(0, 1fr))"
                 aria-hidden="true"
               >
                 <span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 1 / span 2"
+                  style="grid-row: 1; grid-column: 1 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 3 / span 2"
+                  style="grid-row: 1; grid-column: 13 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 5 / span 2"
+                  style="grid-row: 1; grid-column: 25 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 7 / span 2"
+                  style="grid-row: 1; grid-column: 37 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 9 / span 2"
+                  style="grid-row: 1; grid-column: 49 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 11 / span 2"
+                  style="grid-row: 1; grid-column: 61 / span 12"
                 ></span
                 ><span
                   class="self-stretch border-l border-ink/10 dark:border-bone/10"
-                  style="grid-row: 1; grid-column: 13 / span 2"
+                  style="grid-row: 1; grid-column: 73 / span 12"
                 ></span>
                 <span
                   class="h-3 rounded-full border-2 border-ink dark:border-bone"
-                  style="grid-row: 1; grid-column: 1 / 7"
+                  style="grid-row: 1; grid-column: 4 / 46"
                 ></span>
               </div>
             </li>
