@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.11.0](https://github.com/Hypercookie/landing/compare/v1.10.0...v1.11.0) (2026-11-11)
+
+
+### Features
+
+* add the Java student tutor role to the timeline ([e11a230](https://github.com/Hypercookie/landing/commit/e11a230d822f6ac06a4477061bb2e9f3a0876513))
+* filter the timeline by work or study ([be7234b](https://github.com/Hypercookie/landing/commit/be7234b3b0382a54edb8b05a2a5fe12c5bfb87db))
+* give the tutor bar a dotted fill instead of a dashed outline ([c40727c](https://github.com/Hypercookie/landing/commit/c40727c9c324fada4874301781edd379dca0c46d))
+* real timeline dates, tutor role and work/study filter ([80c6c7b](https://github.com/Hypercookie/landing/commit/80c6c7b0eafcb674f5614a30e5462c5c1855bf33))
+
+
+### Bug Fixes
+
+* B.Sc. Apr 2020 - Oct 2023, M.Sc. Oct 2023 - Apr 2026 ([df4d23f](https://github.com/Hypercookie/landing/commit/df4d23f36f0053a0d1a196b28b912c7320029961))
+* B.Sc. ends and M.Sc. starts in Apr 2023 ([0be2fff](https://github.com/Hypercookie/landing/commit/0be2fff2bbd135d86fa8a260958557eaa84664fc))
+* correct the tutor, B.Sc. and full-stack dates on the timeline ([486e6ce](https://github.com/Hypercookie/landing/commit/486e6ce71066408992a3fe9e61147fd6ff529a07))
+* correct timeline dates and drop the logistics role ([a47c9e6](https://github.com/Hypercookie/landing/commit/a47c9e672377fe557f8715dbb44e7c46bbc1bc7b))
+
 ## [1.10.0](https://github.com/Hypercookie/landing/compare/v1.9.0...v1.10.0) (2026-11-11)
 
 
